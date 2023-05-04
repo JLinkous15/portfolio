@@ -5,9 +5,9 @@ export const DropDownNav = () => {
     if (localStorage.getItem("token")) {
         return (
             <ul>
-                {allLinks.map((link) => {
+                {allLinks.map((link, index) => {
                     return (
-                        <li>
+                        <li key={index}>
                             <Link to={link.path}>{link.icon}<span />{link.name}</Link>
                         </li>)
                 })}
@@ -16,9 +16,9 @@ export const DropDownNav = () => {
     } else {
         return (
             <ul>
-                {NavLinks.map((link) => {
+                {NavLinks.map((link, index) => {
                     return (
-                        <li>
+                        <li key={index}>
                             <Link to={link.path}>{link.icon}<span />{link.name}</Link>
                         </li>)
                 })}

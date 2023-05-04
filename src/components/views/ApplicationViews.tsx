@@ -15,7 +15,7 @@ export const ApplicationViews = () => {
             <Route element={<ArtForm />} />
 
             <Route element={<Unauthorized />} />
-            <Route element={<Home />} />
+            <Route element={<Home />} path="/" />
         </Routes>
     )
 }
