@@ -11,11 +11,16 @@ export const ApplicationViews = () => {
         <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route element={<Authorized />} />
-            <Route element={<ArtForm />} />
 
-            <Route element={<Unauthorized />} />
-            <Route element={<Home />} path="/" />
+            {/* views only for admins */}
+            <Route element={<Authorized />} >
+                <Route element={<ArtForm />} />
+            </Route>
+
+            {/* views for all visitors */}
+            <Route element={<Unauthorized />} >
+                <Route element={<Home />} path="/" />
+            </Route>
         </Routes>
     )
 }

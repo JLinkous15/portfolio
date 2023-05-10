@@ -20,11 +20,13 @@ export const Navbar: React.FC<DarkModeProps> = ({ darkMode, setDarkMode }): JSX.
                 }}>
                     Dark
                 </button>
+            </li>
+            <li className="navbar-item">
                 {navToggle
-                    ? <FaBars onClick={() => { setNavToggle(true) }} />
-                    : <FaTimes onClick={() => { setNavToggle(false) }} />}
+                    ? <FaBars onClick={() => { setNavToggle(false) }} />
+                    : <FaTimes onClick={() => { setNavToggle(true) }} />}
             </li>
         </ul>
-        <DropDownNav />
+        <DropDownNav navToggle={navToggle} />
     </>)
 }

@@ -1,10 +1,14 @@
 import { NavLinks, AuthorizedLinks } from "./NavLinks";
-import { Link } from "react-router-dom";
-export const DropDownNav = () => {
+import { Link } from "react-router-dom"
+
+type DropDownNavProps = {
+    navToggle: boolean,
+}
+export const DropDownNav = ({ navToggle }: DropDownNavProps) => {
     const allLinks = NavLinks.concat(AuthorizedLinks)
     if (localStorage.getItem("token")) {
         return (
-            <ul>
+            <ul className={`nav-dropdown ${navToggle ? "" : "down"}`}>
                 {allLinks.map((link, index) => {
                     return (
                         <li key={index}>
@@ -15,7 +19,7 @@ export const DropDownNav = () => {
         )
     } else {
         return (
-            <ul>
+            <ul className={`nav-dropdown ${navToggle ? "" : "down"}`}>
                 {NavLinks.map((link, index) => {
                     return (
                         <li key={index}>
