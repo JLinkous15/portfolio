@@ -1,8 +1,8 @@
 .navbar {
-    background-color: white;
+    background-color: var(--navbar-color);
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     position: absolute;
     top: 0;
@@ -14,22 +14,35 @@
 
 .navbar-item {
     font-size: 1.5rem;
-    padding: 0 1rem;
 }
 
 .nav-dropdown {
-    display: inline;
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--navbar-color);
     position: absolute;
-    list-style: none;
     top: var(--navbar-height);
-    right: 0;
-    padding: 1rem;
+    left: 0;
     z-index: 99;
     transform: translateY(-100%);
     transition: transform 0.3s ease-in-out;
+    width: calc(var(--navbar-dropdown-width) + 2rem);
+    border-radius: 0 0 6.25rem 6.25rem;
+    padding-top: var(--navbar-dropdown-width);
+    justify-content: center;
 }
 
 .down {
     transform: translateY(0%);
+}
+
+.nav-image {
+    height: var(--navbar-dropdown-width);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--navbar-color);
+    padding: 1rem;
+    border-radius: 6.25rem;
 }

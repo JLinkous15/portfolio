@@ -6,7 +6,11 @@ import { Unauthorized } from "./Unauthorized"
 import { ArtForm } from "../FineArt/ArtForm"
 import { Home } from "../Home/Home"
 
-export const ApplicationViews = () => {
+type ApplicationViewsProps = {
+    darkMode: boolean
+}
+
+export const ApplicationViews = ({ darkMode }: ApplicationViewsProps) => {
     return (
         <Routes>
             <Route path="/login" element={<Login />} />

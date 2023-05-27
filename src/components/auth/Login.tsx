@@ -2,9 +2,10 @@ import { useRef } from "react"
 import { loginUser } from "../Managers/AuthManager"
 import { useNavigate } from "react-router-dom"
 
+
 export const Login = () => {
-    const email = useRef<HTMLInputElement>(null)
-    const password = useRef<HTMLInputElement>(null)
+    const email = useRef<HTMLInputElement | null>(null)
+    const password = useRef<HTMLInputElement | null>(null)
     const navigate = useNavigate()
     const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()

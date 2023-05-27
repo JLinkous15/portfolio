@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Portfolio.css';
+import { theme } from './context/theme';
+import { DarkModeContextProvider } from './context/DarkModeContextProvider';
 import { Navbar } from './Navbar/Navbar';
-import { DarkMode } from './DarkMode';
 import { ApplicationViews } from './views/ApplicationViews';
 import { Footer } from './Footer/Footer';
+import { DarkMode } from './DarkMode';
 
 
-export const Portfolio: React.FC = () => {
+export const Portfolio = (): JSX.Element => {
   const [darkMode, setDarkMode] = useState<boolean>(false)
 
   return (
-    <div className="portfolio">
+    <DarkModeContextProvider>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <DarkMode darkMode={darkMode} >
-        <ApplicationViews />
+      <DarkMode darkMode={darkMode}>
+        <ApplicationViews darkMode={darkMode} />
+        <Footer />
       </DarkMode>
-      <Footer />
-    </div>
+    </DarkModeContextProvider>
   );
 }
